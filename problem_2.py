@@ -17,7 +17,7 @@ def rotated_array_search(input_list, number):
        int: Index or -1
     """
 
-   # look for the shifted number
+   # look for the shifted/pivot number
     shift = 0
     for idx in range(len(input_list) - 1):
         if input_list[idx] > input_list[idx + 1]:
