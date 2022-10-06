@@ -27,3 +27,8 @@ For step 1 sorting we can achieve O(nlog(n)) time complexity by quick sort or me
 Quick sort doesn't require additional space, so we choose quick sort instead of merge sort for this implementation.
 
 For potential improvement, we can implement the quick sort to be sorting descendingly, so that there is no need to reverse the result at line 84. But for current implementation simplicity, we just do traditional ascending order.
+
+## Costs:
+
+time: O(nlog(n)), O(nlog(n)) for sorting the list and O(n) for constructing the two numbers, so O(nlog(n)) in total
+space: O(n), quick sort doesn't require additional space since it's done inplace, two lists (of O(n) in total) are used to temporarily to store the formed numbers

@@ -23,3 +23,9 @@ Space: O(n), n is the length of the list (url.split('/'))
 Time: O(n), n is the length of the list (url.split('/'))
 
 Space: O(1) no additional space needed
+
+- build the router
+
+Time: O(nl), n is the number of the urls, l is the average number of words in the urls
+
+Space: O(nl)
