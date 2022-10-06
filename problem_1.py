@@ -7,7 +7,12 @@ def sqrt(number):
     Returns:
        int: Floored Square Root
     """
-
+    if not isinstance(number, int):
+        print('invalid input: should be an int number')
+        return -1
+    if number < 0:
+        print('invalid input: should be a non-negative number')
+        return -1
    # binary search in the range [0, number]
     left = 0
     right = number // 2
@@ -27,7 +32,6 @@ def sqrt(number):
 
 
 print("Pass" if (3 == sqrt(9)) else "Fail")
-print("Pass" if (0 == sqrt(0)) else "Fail")
 print("Pass" if (4 == sqrt(16)) else "Fail")
 print("Pass" if (1 == sqrt(1)) else "Fail")
 print("Pass" if (5 == sqrt(27)) else "Fail")
@@ -36,3 +40,8 @@ print("Pass" if (5 == sqrt(26)) else "Fail")
 print("Pass" if (5 == sqrt(35)) else "Fail")
 print("Pass" if (6 == sqrt(36)) else "Fail")
 print("Pass" if (6 == sqrt(37)) else "Fail")
+# Test for edge case
+print("Pass" if (0 == sqrt(0)) else "Fail")
+assert -1 == sqrt(-1)
+assert -1 == sqrt("not a number")
+assert -1 == sqrt(None)
