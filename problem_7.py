@@ -69,7 +69,10 @@ class Router:
         # bonus points if a path works with and without a trailing slash
         # e.g. /about and /about/ both return the /about handler
         handler = self.trie.find(self.split_path(path))
-        return handler
+        if handler is None:
+            return self.trie.getNotFoundHandler()
+        else:
+            return handler
 
     def split_path(self, path):
         # you need to split the path into parts for
@@ -87,11 +90,32 @@ router = Router("root handler", "not found handler")
 router.add_handler("/home/about", "about handler")  # add a route
 
 # some lookups with the expected output
-print(router.lookup("/"))  # should print 'root handler'
+assert router.lookup("/") == "root handler"  # should print 'root handler'
 # should print 'not found handler' or None if you did not implement one
-print(router.lookup("/home"))
-print(router.lookup("/home/about"))  # should print 'about handler'
+assert router.lookup("/home") == "not found handler"
+# should print 'about handler'
+assert router.lookup("/home/about") == "about handler"
 # should print 'about handler' or None if you did not handle trailing slashes
-print(router.lookup("/home/about/"))
+assert router.lookup("/home/about/") == "about handler"
 # should print 'not found handler' or None if you did not implement one
-print(router.lookup("/home/about/me"))
+assert router.lookup("/home/about/me") == "not found handler"
+
+
+# Test Case 2: edge case, not found handler is None
+router2 = Router("root handler")
+router2.add_handler("/home/about", "about handler")
+router2.add_handler("/home/about/detail", "about detail handler")
+assert router2.lookup("/home/not_added") is None
+router2.add_handler("/codebase", "codebase handler")
+assert router2.lookup("/codebase/") == "codebase handler"
+
+# Test Case 3: edge case
+router3 = Router("root handler")
+current_path = "/"
+for i in range(1000):
+    word = "sub" + str(i)
+    current_path = current_path + word + "/"
+    router3.add_handler(current_path, "handler " + str(i))
+
+assert router3.lookup(current_path) == "handler 999"
+assert router3.lookup("/sub1/sub2/sub3") is None
