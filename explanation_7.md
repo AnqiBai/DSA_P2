@@ -12,20 +12,60 @@ Implementation details need to be noted:
 
 ### Complexity:
 
-- add a url and handler mapping to the Router
+- RouteTrie Class
 
-Time: O(n), n is the length of the list (url.split('/'))
+1. getRootHandler
 
-Space: O(n), n is the length of the list (url.split('/'))
+   time & space: O(1)
 
-- lookup a url in the Router
+2. getNotFoundHandler
 
-Time: O(n), n is the length of the list (url.split('/'))
+   time & space: O(1)
 
-Space: O(1) no additional space needed
+3. insert
 
-- build the router
+time: O(l)
 
-Time: O(nl), n is the number of the urls, l is the average number of words in the urls
+space: O(l)
 
-Space: O(nl)
+l is the number of segments in the url.
+
+4. find
+
+time: O(l)
+
+space: O(1)
+
+l is the number of segments in the url.
+
+- Router Class
+
+1. add_handler
+
+Costs are the same as RouteTrie.insert method.
+
+time: O(l)
+
+space: O(l)
+
+l is the number of segments in the url path.
+
+2. lookup
+
+Costs are the same as RouteTrie.find method.
+
+time: O(l)
+
+space: O(1)
+
+l is the number of segments in the url.
+
+3. split_path
+
+Spliting is done with python's builtin function. Costs are based on python's builtin split function.
+
+n: length of the input string
+
+time: O(n)
+
+space: O(n)

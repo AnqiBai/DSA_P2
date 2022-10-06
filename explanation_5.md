@@ -10,26 +10,26 @@ Each trie node could have multiple children, and each child itself is a trie nod
 
 ### Complexity:
 
-- insert a string to the Trie
+- TrieNoe class
 
-Time: O(n), n is the length of the string
+1. suffixes
 
-Space: O(n), n is the length of the string
+time: O(n\*l)
 
-- search a string in the Trie
+space: O(n\*l)
 
-Time: O(n), n is the length of the string
+n is the number of words stored in the tree, l is the average length of the words.
 
-Space: O(1) no additional space needed
+- Trie class
 
-- traverse from a root trie node
+1. insert
 
-Time: O(nl), n is the number of the words, l is the average length of the words
+time: O(l), l is the length of the word
 
-Space: O(1) no additional space needed
+space: O(l), new nodes are created in the tree, l is the length of the word
 
-- create a Trie
+2. find
 
-Time: O(nl), n is the number of the words, l is the average length of the words
+time: O(l), l is length of the word
 
-Space: O(nl)
+space: O(1)
