@@ -16,7 +16,12 @@ def rotated_array_search(input_list, number):
     Returns:
        int: Index or -1
     """
-
+    if not isinstance(input_list, list):
+        print("invalid input list: not a list")
+        return -1
+    if not isinstance(number, int):
+        print("invalid input number: not an int")
+        return -1
    # look for the shifted/pivot number
     shift = 0
     for idx in range(len(input_list) - 1):
@@ -60,3 +65,8 @@ test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 8])
 test_function([[6, 7, 8, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 10])
+
+# test edge case
+test_function([[], 10])
+test_function([[10000, *[i for i in range(10000)]], 10000])
+test_function([[10000, *[i for i in range(10000)]], 1])

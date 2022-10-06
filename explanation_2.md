@@ -14,3 +14,8 @@
 This is a typical binary search problem (looking for a target value in a sorted array), so we can use binary search to achieve O(log(n)) time complexity.
 
 The only variation is the rotation. We can treat this rotation as some kind of change of the coordinate system. So in order to solve the problem, we can just perform classic binary search with a helper function (**getShiftedEle** in the implementation) to map between the rotated array and the logical/virtual sorted original array. This is also the reason why we need to calculate the shift/pivot first in the algorithm.
+
+## Costs
+
+time: O(log(n)) n is the length of the list
+space: O(1) no additional data structure is used, no recursion
