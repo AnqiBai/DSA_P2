@@ -13,3 +13,8 @@
 In order to find min and max of the unsorted array, we need to visit every element of the array. So we need to traverse the array, and the time complexity will be O(n).
 
 The processes of looking for the min and max would be of the same for-loop structure, so we can use a single for-loop for the process.
+
+## Costs
+
+time: O(n) min and max are found in a single traversal of the list
+space: O(1) no additional data structure is used
