@@ -10,7 +10,7 @@ def sqrt(number):
 
    # binary search in the range [0, number]
     left = 0
-    right = number
+    right = number // 2
     while left < (right - 1):
         mid = left + (right - left) // 2
         if mid * mid == number:

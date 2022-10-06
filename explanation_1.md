@@ -29,3 +29,8 @@ Implementation details need to be noted:
 And due to this change, we need to also update the while-loop condition to
 **left < (right - 1)**
 . Without this change, the **while left <= right** condition and the **mid = left + (right -left) // 2** assignment for mid will together lead to infinite loop when left equals to right.
+
+## Costs
+
+time: O(log(n))
+space: O(1) no additional data structure is used, no recursion
