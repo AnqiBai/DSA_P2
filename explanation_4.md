@@ -42,3 +42,8 @@ In this case, this 0 is already in the correct section, so we right move the poi
 In this case, this 2 should be moved to the (two, right) section, so we swap the elements on pointers one and two, and left move the pointer two;
 
 Only when the pointer two is on the adjacent left of the pointer one, all elements of the array have been checked, i.e. the traversal is completed.
+
+## Costs
+
+time: O(n) , n is the length of the list. The sorting is done through a single traversal of the list.
+space: O(1) no additional data structure is used, all steps (swap) are performed on the original list.
