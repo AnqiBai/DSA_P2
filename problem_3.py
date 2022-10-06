@@ -59,6 +59,18 @@ def quick_sort(array):
     return array
 
 
+def is_input_list_valid(array):
+    if not isinstance(array, list):
+        return "input should be a list"
+    elif len(array) < 2:
+        return "input list needs to have at lease two elements"
+    else:
+        for idx, item in enumerate(array):
+            if not isinstance(item, int) or item not in range(10):
+                return "invalid element of the input list at index " + str(idx)
+    return "pass"
+
+
 def rearrange_digits(input_list):
     """
     Rearrange Array Elements so as to form two number such that their sum is maximum.
@@ -71,6 +83,10 @@ def rearrange_digits(input_list):
     # sort the input list
     # python sorting not allowed
     # build two numbers
+    check_input = is_input_list_valid(input_list)
+    if check_input != "pass":
+        print(check_input)
+        return []
     quick_sort(input_list)
     n = len(input_list) // 2
     str1 = ""
@@ -95,3 +111,11 @@ def test_function(test_case):
 
 test_function([[1, 2, 3, 4, 5], [542, 31]])
 test_function([[4, 6, 2, 5, 9, 8], [964, 852]])
+
+# Added test case
+test_function([[1], []])
+test_function(["test 33333", []])
+test_function([[1, 3, 2, 99], []])
+test_function([[1, 3, "str", 99], []])
+test_function([[9, 9, 9, 9, 1, 1, 1, 1], [9911, 9911]])
+test_function([[9, 9, 9, 9, 1, 1, 1, 1, 1], [99111, 9911]])
